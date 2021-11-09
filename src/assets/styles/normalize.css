@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-greadient(45deg, #fead06, #c00def);
+  font-family: "Baloo Bhai 2", cursive;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+/* label{
+    display: block;
+    margin-top: 0.5em;
+}
+input{
+    padding: 0.5em;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+.form__container{
+
+    width: 70%;
+    margin: auto;
+}
+ */
