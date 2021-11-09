@@ -9,7 +9,7 @@
       >
         <b-form-input
           id="input-1"
-          v-model.number="form.address.pinCode"
+          v-model.number="form.address.pincode"
           type="text"
           placeholder="Enter pinCode"
           required
@@ -42,15 +42,15 @@
     </b-form>
 
     <div v-if="isShow === 'searches'">
-      <ul>
-        <li v-for="booking in parkings" :key="booking.address.pincode">
+    <div v-if="parkings.length===0">No available space for now</div>
+        <div v-for="booking in parkings" :key="booking.address.pincode">
           Address:
-          <div>pinCode:${{ booking.address.pincode }}</div>
-          <div>colony:${{ booking.address.colony }}</div>
+          <div>pinCode:{{ booking.address.pincode }}</div>
+          <div>colony:{{ booking.address.colony }}</div>
           <hr />
-          <button @click="bookParking">Book Parking</button>
-        </li>
-      </ul>
+          <button @click="bookParking(booking)">Book Parking</button>
+        </div>
+    
     </div>
   </div>
 </template>
@@ -64,7 +64,7 @@ export default {
       isShow: "form",
       form: {
         address: {
-          pinCode: null,
+          pincode: null,
           colony: "",
         },
         vehicleType: null,
@@ -74,6 +74,9 @@ export default {
       parkings: [],
     };
   },
+  // computed:{
+  //   parking:()=>this.parkings
+  // },
   methods: {
     onSubmit() {
       console.log("Form Data ", this.form);
@@ -85,9 +88,9 @@ export default {
         })
         .catch((err) => console.log(err));
     },
-    bookParking() {
-      bookParking(this.form);
-      this.address.pinCode = 0;
+    bookParking(data) {
+      bookParking(data);
+      this.address.pincode = 0;
       this.address.colony = "";
       this.vehicleType = "";
       this.isShow = "form";
