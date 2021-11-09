@@ -11,7 +11,10 @@ const uploadParkings = async (parkingDetails) => {
         Authorization: localStorage.getItem("token"),
       },
     })
-    .then((res) => res.data);
+    .then((res) => {
+      console.log("upload data>>>>", res.data);
+      return res.data;
+    });
 };
 
 export default uploadParkings;
