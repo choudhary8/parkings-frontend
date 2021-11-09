@@ -43,12 +43,13 @@
 
     <div v-if="isShow === 'searches'">
     <div v-if="parkings.length===0">No available space for now</div>
-        <div v-for="booking in parkings" :key="booking.address.pincode">
+        <div v-for="booking in parkings" :key="booking._id">
           Address:
           <div>pinCode:{{ booking.address.pincode }}</div>
           <div>colony:{{ booking.address.colony }}</div>
-          <hr />
+         
           <button @click="bookParking(booking)">Book Parking</button>
+           <hr />
         </div>
     
     </div>
