@@ -5,7 +5,7 @@ const { apiBaseUrl } = AppConfig;
 
 const bookParking = async (bookingDetails) => {
   await axios
-    .post(`${apiBaseUrl}/`, bookingDetails, {
+    .post(`${apiBaseUrl}/book-space`, bookingDetails, {
       headers: {
         "content-type": " application/json",
         Authorization: localStorage.getItem("token"),
